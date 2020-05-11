@@ -1,7 +1,9 @@
-# ModulHW1 2020 WebApi
+# :bank: ModulHW1 2020 WebApi
 
-#### Код для создания БД
-    CREATE DATABASE MyWebApi.Dev;
+### Настройка БД:
+#### Название БД: MyWebApi.Dev
+#### Имя пользователя БД: postgres
+#### Пароль БД: modulpass20
 #### Код для создания таблиц
     CREATE TABLE employees (
         "id" uuid NOT NULL,
@@ -18,9 +20,9 @@
         "balance" decimal NOT NULL,
         PRIMARY KEY (number)
     ); 
-#### Имя пользователя БД: postgres
-#### Пароль БД: modulpass20
+
 # Описание API
+## :key: Получение токена:
 ## Регистрация 
 Registration [HttpPost("signup")]
 
@@ -70,7 +72,7 @@ Content-Type: application/json
     "expiration": "2020-05-11T13:40:41Z"
 }
 ```
-
+# :moneybag: Денежные операции:
 ## Открыть новый счет 
 CreateNewAccountNumber [HttpPost("create")]
 
@@ -93,7 +95,7 @@ Authorization: Bearer eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW
 TopUp [HttpPost("topup")]
 
 Parameters:
-- number - номер счета, который нужно пополнить
+- number - номер счета, который нужно пополнить (Пополнять можно только свои счета)
 - amount - сумма пополнения 
 
 Пример вызова:
@@ -119,7 +121,7 @@ Content-Type: application/json
 MakeTransaction [HttpPost("/accounts/makeTransaction")]
 
 Parameters:
-- ownaccount - номер счета отправителя
+- ownaccount - номер счета отправителя (Счет должен принадлежать совершающему перевод пользователю)
 - payeeaccount - номер счета получателя
 - amount - сумма перевода
 
