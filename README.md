@@ -3,7 +3,7 @@
 #### Код для создания БД
     CREATE DATABASE MyWebApi.Dev;
 #### Код для создания таблиц
-    CREATE TABLE users (
+    CREATE TABLE employees (
         "id" uuid NOT NULL,
         "username" text NOT NULL,
         "email" text NOT NULL,
